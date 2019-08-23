@@ -27,18 +27,29 @@ Essi si dividono in:
 \begin{itemize}
 	\item Tutti quegli obiettivi che sono fondamentali per la corretta riuscita del progetto, anche detti, obiettivi obbligatori:
 	\begin{itemize}
-		\item 
+		\item Il sistema deve essere in grado di aggiornare periodicamente (es. 1 volta al gg) la concezione di normalità, per adattarsi al contesto dinamico;	 
+		\item Il sistema deve essere in grado di ricevere i flussi batch ed archiviarli dove desiderato;
+		\item Il sistema deve essere in grado di processare i flussi batch producendo i dataset di output richiesti;
+		\item I processi devono essere schedulati per avviarsi periodicamente;
 	\end{itemize}
 	\item Obiettivi desiderabili, cioè, quegli obiettivi che porterebbero ad una maggiore completezza del progetto di stage ma che non sono fondamentali per la sua buona riuscita:
 		\begin{itemize}
-		\item 
+		 \item Il sistema deve riuscire ad aggiornarsi continuamente senza interrompere l'erogazione del servizio;
+		 \item Il sistema deve essere in grado di scrivere i risultati su una struttura interrogabile via SQL;
+		 \item Il sistema deve poter scalare le risorse in base al volume di dati;
 		\end{itemize}	
 	\item Tutti quegli obiettivi che sono marginali al progetto ma che porterebbero comunque valore aggiunto allo stesso, anche detti, obiettivi facoltativi,:
 	\begin{itemize}
-		\item 
+		\item Il sistema deve poter lavorare su dati archiviati su Elasticsearch;
+		\item Il sistema deve poter essere in grado di scrivere i propri output su DB NoSQL; 
 	\end{itemize}
 \end{itemize}
-
 \subsection{Vincoli}
+Durante i colloqui di esposizione del progetto di stage, sono sorti alcuni vincoli da soddisfare per svolgere al meglio lo stesso.\\
+\subsubsection{Vincoli temporali}
+La durata dello stage doveva essere al minimo di 300 ore e al massimo di 320, in modo da rispettare i crediti stabiliti all'interno del piano di studi, svolte tutte presso la sede in via Robert Koch 1/4 a Milano negli orari 9.00-13.00, 14.00-18.00.
+\subsubsection{Vincoli tecnologici}
+Utilizzo della suite \gls{Google Cloud} per lo sviluppo dell'ingestion dei dati.
 \section{Motivi della scelta}
+
 Perchè Reply?
