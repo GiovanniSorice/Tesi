@@ -404,7 +404,7 @@
 
 %Glossary
 \usepackage[acronym, toc]{glossaries}
-
+\usepackage[justification=centering]{caption}
 
 \include{glossary_terms}
 
