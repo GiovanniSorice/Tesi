@@ -107,9 +107,19 @@ La descrizione che viene data nella documentazione di \href{https://nifi.apache.
 \end{itemize}
 Le azioni di maggiore interesse stanno nelle PTrasforms, infatti rende possibile processare ogni singolo elemento delle PCollection, effettuare raggruppamenti per uno o più elementi, unire  e partizionare le PCollections.
 La documetazione a disposizione è decisamente idonea e precisa rispetto alla potenzialità di utilizzo. Inoltre, essendo un progetto OpenSource vi è la possibilità di collaborare al continuo sviluppo, e quindi al successo, che questa tecnologia sta avendo.
-\subsection{AirFlow}
-\href{https://airflow.apache.org/}{}
+\subsection{Apache AirFlow}
+\href{https://airflow.apache.org/}{Apache AirFlow} è una piattaforma per creare, schedulare e monitorare \gls{workflows}. Airflow, inoltre, cerca la soluzione più performante per l'esecuzione dei task, creando un Grafo Aciclico Diretto (meglio conosciuto come "\gls{DAGs}" cioe " Directed Acyclic Graphs") in modo da riconoscere le dipendenze tra i compiti stessi ed eseguire i task con meno dipendenze.
+La scelta di utilizzare questa tecnologia è stata presa sia per la già precedente esperienza aziendale con essa, sia perché completamente compatibile e già installata all'interno di Google Cloud Composer. Data la sua notevole compatibilità ci ha permesso di soddisfare un requisito del cliente riguardante l'ingestion in tempo reale dei dati inviati.
+
 \section{Integrazione}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{figures/workflow-overview}
+	\caption[Short figure name.]{Logo Data Google Cloud Platform
+		\label{fig:logoGCP}}
+\end{figure}	
+
+
 Come?
 
 Durante l'esperienza lo strumento si è rilevato...
