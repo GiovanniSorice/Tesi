@@ -110,7 +110,9 @@ La documetazione a disposizione è decisamente idonea e precisa rispetto alla po
 \subsection{Apache AirFlow}
 \href{https://airflow.apache.org/}{Apache AirFlow} è una piattaforma per creare, schedulare e monitorare \gls{workflows}. Airflow, inoltre, cerca la soluzione più performante per l'esecuzione dei task, creando un Grafo Aciclico Diretto (meglio conosciuto come "\gls{DAGs}" cioe " Directed Acyclic Graphs") in modo da riconoscere le dipendenze tra i compiti stessi ed eseguire i task con meno dipendenze.
 La scelta di utilizzare questa tecnologia è stata presa sia per la già precedente esperienza aziendale con essa, sia perché completamente compatibile e già installata all'interno di Google Cloud Composer. Data la sua notevole compatibilità ci ha permesso di soddisfare un requisito del cliente riguardante l'ingestion in tempo reale dei dati inviati.
-
+\subsection{Docker}
+\subsection{Apache Spark}
+\subsubsection{Apache Spark MlLib}
 \section{Integrazione}
 \begin{figure}[h!]
 	\centering
@@ -118,7 +120,16 @@ La scelta di utilizzare questa tecnologia è stata presa sia per la già precede
 	\caption[Short figure name.]{Logo Data Google Cloud Platform
 		\label{fig:logoGCP}}
 \end{figure}	
-
+L'integrazione delle tecnologie elencate alla sezione 4.1, ha portato a stabilire un vero e proprio ciclo di vita del dato. Infatti, partendo dai file che il cliente rilascia giornalmente all'interno di un \gls{server SFTP}(1), tramite Apache NiFI (2), avveniva una prima pre elaborazione in base alla tipologia di file così da unificare il formato su cui lavorare.
+\\
+Questi file vengono spostati all'interno di Google Cloud Storage (3), il quale, al trasferimento di ogni file, scatena l'avvio delle Google Cloud Function (4) che di conseguenza avviano il processo di ingestion sul file appena trasferito tramite l'attivazione del file DAGs all'interno di AirFlow (5).
+\\
+L'ingestion è composta da alcuni job Google Cloud Dataflow (6) scritti in \gls{Python} e caratterizzati dall'utilizzo di Apache Beam (7) per la creazione delle pipeline dei dati.
+Questi job, rendono i dati leggibili e consultabili. Dopodiché, vengono riportati all'interno di apposite tabelle Google Cloud BigQuery (8).
+\\
+Al termine di questo processo, abbiamo il definitivo passaggio da semplice dato ad effettiva informazione per cliente tramite i report e le dashborad riassuntive di Google Data Studio (9).
+\\
+Per concludere il processo da dato ad informazione, abbiamo costruito un sistema che, tramite Kafka (10) e quindi secondo lo schema produttore-consumatore in streaming, invia dei dati ad un algoritmo di Machine Learning sviluppato tramite Apache Spark (11)(più in particolare tramite la libreria Apache Spark MLlib) che classifica gli utenti su base settimanale, conserva le classificazioni e verifica che ogni utente non abbia cambi di classe in modo anomalo.
 
 Come?
 
