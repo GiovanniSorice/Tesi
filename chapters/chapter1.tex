@@ -1,52 +1,46 @@
 %!TEX root = ../dissertation.tex
-\begin{savequote}[75mm]
-Nulla facilisi. In vel sem. Morbi id urna in diam dignissim feugiat. Proin molestie tortor eu velit. Aliquam erat volutpat. Nullam ultrices, diam tempus vulputate egestas, eros pede varius leo.
-\qauthor{Quoteauthor Lastname}
-\end{savequote}
 
 \chapter{Evoluzione dello stage}
-Perchè?
+In questo capitolo verrà introdotto il progetto, spiegandone vincoli, obiettivi e motivi della scelta.
 \section{La proposta di stage}
 La proposta di stage mi è stata fatta nei mesi successivi alla visita all'azienda svolta attraverso l'Università di Padova. Fin da subito il complesso e lo spirito aziendale mi sono sembrati adatti ad ospitare degli studenti volenterosi di sperimentare nuove tecnologie.
 \\
-Dopodiché, durante i colloqui con il Dott. Michele Giusto, mi è stato esposto un progetto incentrato sui Big Data e il rilevamento delle anomalie che corrispondeva al mio bisogno di affrontare nuove sfide e approfondire argomenti non trattati durante la laurea.
+Durante i colloqui con il Dott. Michele Giusto, mi è stato esposto un progetto incentrato sui Big Data e il rilevamento delle anomalie che corrispondeva al mio bisogno di affrontare nuove sfide e approfondire argomenti non trattati durante i corsi universitari.
 \\
 Negli ultimi anni infatti, tra le tecnologie che hanno riscosso più successo e fama, troviamo i Big Data e tecniche di intelligenza artificiale con particolare attenzione al machine learning.
-Per questo motivo e per il mio già precedente interessamento verso queste tecnologie, ho deciso di dare forma ai requisiti di questo progetto. 
+Per questo motivo e per il mio già precedente interessamento verso queste tecnologie, ho deciso di dare forma agli obiettivi di questo progetto. 
 
 \section{Il progetto}
-Il progetto si prefissava l'obiettivo di analizzare e costruire l'intero ciclo di vita del dato, secondo metodi, strumenti e tecniche innovative decise dal cliente.
+Il progetto si prefissava l'obiettivo di analizzare e costruire l'intero ciclo di vita del dato, secondo metodi, strumenti e tecniche innovative.
 \\
-Quindi, per essere maggiormente concreti, il progetto prevedeva l'implementazione di un sistema di \gls{ingestion} dei dati aziendali del cliente, che quindi comportasse l'estrapolazione di informazioni dal dato grezzo , con successiva classificazione degli utenti che interagivano con il sistema stesso, in modo da intercettare eventuali comportamenti sospetti.
+Per essere maggiormente concreti, il progetto prevedeva l'implementazione di un sistema di \gls{ingestion} dei dati aziendali del cliente, che quindi comportasse l'estrapolazione di informazioni dal dato grezzo, con successiva classificazione degli utenti che interagivano con il sistema stesso, in modo da intercettare eventuali comportamenti sospetti.
 \\
 Per svolgere questo progetto, prima del mio arrivo e dell'effettiva proposta, l'azienda ospitante ha svolto uno studio di fattibilità in modo da sottolineare eventuali carenze di informazioni, criticità e punti a favore del progetto.
 \\
 Durante il mio periodo di permanenza, il progetto è stato portato al termine seguendo le indicazioni iniziali e con alcuni aggiustamenti durante il percorso. Inoltre, sono state rispettate le fondamentali indicazioni del tutor aziendale che mi ha affiancato durante lo stage.
 \\
 Terminato il mio stage il prodotto risultava conforme alle aspettative e facilmente manutenibile grazie alla documentazione redatta durante il periodo di studio del problema, sviluppo e test.
-*******
-Spiegarlo ad ampio raggio (prima di me, con me e dopo di me)
 \subsection{Obiettivi}
 Durante i colloqui di esposizione del progetto di stage, sono sorti alcuni obiettivi da soddisfare al termine dello stesso.\\
 Essi si dividono in:
 \begin{itemize}
-	\item Tutti quegli obiettivi che sono fondamentali per la corretta riuscita del progetto, anche detti, obiettivi obbligatori:
+	\item Tutti gli obiettivi che sono fondamentali per la corretta riuscita del progetto, anche detti, obiettivi obbligatori:
 	\begin{itemize}
 		\item Il sistema deve essere in grado di aggiornare periodicamente la concezione di normalità, per adattarsi al contesto dinamico;	 
 		\item Il sistema deve essere in grado di ricevere i flussi batch ed archiviarli dove desiderato;
 		\item Il sistema deve essere in grado di processare i flussi batch producendo i dataset di output richiesti;
-		\item I processi devono essere schedulati per avviarsi periodicamente;
+		\item I processi devono essere programmati per avviarsi periodicamente.
 	\end{itemize}
-	\item Obiettivi desiderabili, cioè, quegli obiettivi che porterebbero ad una maggiore completezza del progetto di stage ma che non sono fondamentali per la sua buona riuscita:
+	\item Obiettivi desiderabili, cioè, gli obiettivi che porterebbero ad una maggiore completezza del progetto di stage ma che non sono fondamentali per la sua buona riuscita:
 		\begin{itemize}
 		 \item Il sistema deve riuscire ad aggiornarsi continuamente senza interrompere l'erogazione del servizio;
 		 \item Il sistema deve essere in grado di scrivere i risultati su una struttura interrogabile via SQL;
-		 \item Il sistema deve poter scalare le risorse in base al volume di dati;
+		 \item Il sistema deve poter scalare le risorse in base al volume di dati.
 		\end{itemize}	
-	\item Tutti quegli obiettivi che sono marginali al progetto ma che porterebbero comunque valore aggiunto allo stesso, anche detti, obiettivi facoltativi,:
+	\item Tutti gli obiettivi che sono marginali al progetto ma che porterebbero comunque valore aggiunto allo stesso, anche detti, obiettivi facoltativi:
 	\begin{itemize}
 		\item Il sistema deve poter lavorare su dati archiviati su Elasticsearch;
-		\item Il sistema deve poter essere in grado di scrivere i propri output su DB NoSQL; 
+		\item Il sistema deve poter essere in grado di scrivere i propri output su DB NoSQL. 
 	\end{itemize}
 \end{itemize}
 \subsection{Vincoli}

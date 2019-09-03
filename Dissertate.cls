@@ -147,8 +147,8 @@
 \renewcommand\listfigurename{Elenco delle figure}
 \renewcommand\listtablename{Elenco delle tabelle}
 
-%test
-\usepackage[english, italian]{babel}    % per scrivere in italiano e in inglese;
+%language
+\usepackage[italian]{babel}    % per scrivere in italiano e in inglese;
 										% l'ultima lingua (l'italiano) risulta predefinita
 \usepackage[italian]{varioref}          % riferimenti completi della pagina
 
@@ -401,11 +401,11 @@
     \bibliographystyle{apalike2}
     \include{endmatter/colophon}
 }
-
+\usepackage[justification=centering]{caption}
 %Glossary
 \usepackage[acronym, toc]{glossaries}
-\usepackage[justification=centering]{caption}
 
-\include{glossary_terms}
+
+\include{glossario}
 
 \makeglossaries
