@@ -28,7 +28,7 @@ Il punto cruciale del sotto-progetto riguardante l'ingestion è stato lo studio 
 \\
 Per quanto riguarda la classificazione degli utenti, si è scelto di intraprendere una strada che potesse portare a dei vantaggi di utilizzo e portabilità, cioè si è deciso di utilizzare un \gls{container} Docker per lo sviluppo ed utilizzo degli algoritmi di classificazione.
 Questo è stato fatto per agevolare l'installazione e configurazione in locale dell'intero pacchetto di strumenti da utilizzare, tra cui Spark, Kafka e Hadoop.
-Ovviamente, l'utilizzo di Docker ha comportato la scelta del miglior compromesso per la creazione di un container adatto. Dato l'ampio pacchetto di strumenti da studiare in autonomia, abbiamo deciso quindi di utilizzare un \href{https://www.cloudera.com/documentation/enterprise/5-6-x/topics/quickstart_docker_container.html}{container Cloudera} già contenete la maggior parte degli strumenti necessari per sviluppare un processo di classificazione degli utenti.
+Ovviamente, l'utilizzo di Docker ha comportato la scelta del miglior compromesso per la creazione di un container adatto. Dato l'ampio pacchetto di strumenti da studiare in autonomia, abbiamo deciso quindi di utilizzare un container Cloudera \cite{containercloudera} già contenete la maggior parte degli strumenti necessari per sviluppare un processo di classificazione degli utenti.
 Inoltre, per far si che i dati venissero continuamente aggiornati, come effettivamente succede nella fase di ingestion, abbiamo deciso di utilizzare Kafka Straming per mantenere un flusso continuo di verifica delle anomalie, così da mantenere in costante aggiornamento il cliente.
 
 \section{Requisiti}
@@ -163,7 +163,7 @@ Durante i colloqui svolti con il tutor aziendale, è stato redatto il piano di l
 		\item Integrazione storage persistente.
 	\end{itemize}
 \end{itemize}
-possibili diagrammi
+possibili diagrammi.
 \section{Risultati}
 Alla fine del periodo di stage, i risultati ottenuti sono stati considerati più che positivi dal tutor aziendale Dott. Michele Giusto, dato che sono stati soddisfatti tutti i requisiti obbligatori e desiderabili. I requisiti facoltativi, non sono stati implementati per lasciare maggiore spazio e importanza ai requisiti obbligatori.
 \\

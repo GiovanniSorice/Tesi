@@ -4,7 +4,7 @@ In questa sezione, verranno elencate e introdotte le tecnologie che sono state u
 \section{Tecnologie}
 \subsection{Google Cloud}
 Il principale servizio utilizzato durante il progetto è stato Google Cloud, in esso troviamo una moltitudine di strumenti utili allo sviluppo, all'esecuzione e all'interazione di progetti riguardanti Big Data e Intelligenza Artificiale. Inoltre, importante risulta la possibilità di consultare, manipolare e presentare i dati.
-Il progetto Google Cloud (anche detto Google Cloude Platform), viene lanciato nel 2008 con uno dei suoi servizi di punta ancora oggi  \gls{App Engine}. Nell'arco degli anni sia il bacino di utenti, sia i servizi offerti sono via via aumentati. Oggigiorno i suoi \href{https://cloud.google.com/customers/#/}{clienti} sono molti, tra cui grandi aziende, e le funzionalità di spicco sono molteplici, i campi di maggiore interesse riguardano strumenti di Compute, Storage \& Databases, Big Data, Cloud AI e IoT.
+Il progetto Google Cloud (anche detto Google Cloude Platform), viene lanciato nel 2008 con uno dei suoi servizi di punta ancora oggi  \gls{App Engine}. Nell'arco degli anni sia il bacino di utenti, sia i servizi offerti sono via via aumentati. Oggigiorno i suoi clienti \cite{clienti} sono molti, tra cui grandi aziende, e le funzionalità di spicco sono molteplici, i campi di maggiore interesse riguardano strumenti di Compute, Storage \& Databases, Big Data, Cloud AI e IoT.
 Per quanto riguarda l'esperienza personale, ho trovato Google Cloud un buon servizio, con dei problemi da risolvere sulla completezza della documentazioni e a volte con grafiche da migliorare, ma comunque un ottimo compromesso tra qualità e prezzo.
 Il resto della sezione introduce il prodotti e i servizi GCP utilizzati durante lo stage.
 \begin{figure}
@@ -14,7 +14,7 @@ Il resto della sezione introduce il prodotti e i servizi GCP utilizzati durante 
 		\label{fig:logoGCP}}
 \end{figure}	
 \subsubsection{Google Cloud Storage}
-Lanciato nel 2010, \href{https://cloud.google.com/storage/}{Google Cloud Storage} è il servizio di hosting dei file della piattaforma. All'interno ogni utente può scegliere in che modalità salvare i dati (zona del mondo, carico di lavoro e frequenza d'accesso), così da trovare la soluzione maggiormente adatta ai propri bisogni.
+Lanciato nel 2010, Google Cloud Storage \cite{GoogleCloudStorage} è il servizio di hosting dei file della piattaforma. All'interno ogni utente può scegliere in che modalità salvare i dati (zona del mondo, carico di lavoro e frequenza d'accesso), così da trovare la soluzione maggiormente adatta ai propri bisogni.
 I suoi punti di forza sono:
 \begin{itemize}
 	\item Interoperabilità: possibilità di interfacciarsi con strumenti e servizi di aziende terze (come Amazon S3);
@@ -25,7 +25,7 @@ I suoi punti di forza sono:
 
 Per quanto riguarda l'esperienza d'utilizzo, si è rivelato un ottimo servizio di storage, l'abilitazione di un'unica API rende disponibile l'intero pacchetto di funzionalità e ciò l'ho trovato molto comodo.
 \subsubsection{Google Cloud BigQuery}
-Servizio lanciato insieme a Google Cloud Storage nel 2010, \href{https://cloud.google.com/bigquery/}{Google Cloud BigQuery}, è lo strumento che permette di interagire e analizzare grandi moli da dati, definito come un \gls{data warehouse}. All'interno di GCP, vi è un'apposita interfaccia utente per utilizzarlo. Si basa su tabelle codificate in formato JSON e sulla quale vengono processate query in \href{https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql}{standard SQL} tramite avanzati algortmi di \gls{MapReduce}.
+Servizio lanciato insieme a Google Cloud Storage nel 2010, Google Cloud BigQuery \cite{GoogleCloudBigQuery}, è lo strumento che permette di interagire e analizzare grandi moli da dati, definito come un \gls{data warehouse}. All'interno di GCP, vi è un'apposita interfaccia utente per utilizzarlo. Si basa su tabelle codificate in formato JSON e sulla quale vengono processate query in standard SQL \cite{standardSQL} tramite avanzati algortmi di \gls{MapReduce}.
 \\I principali punti di forza sono:
 \begin{itemize}
 	\item La piattaforma rende disponibile la creazione e distruzione di tabelle basati su schemi JSON, inoltre rende disponibile l'import e l'export di dati in formati come CSV e JSON;
@@ -37,7 +37,7 @@ Servizio lanciato insieme a Google Cloud Storage nel 2010, \href{https://cloud.g
 
 L'opinione del team di sviluppo riguardo lo strumento è molto positiva sopratutto grazie alla scalabilità automatica che rende semplice e veloce l'utilizzo delle query su grandi moli di dati, un possibile punto di debolezza può essere trovato nell'utilizzo in sola lettura dei dati esistenti, quindi non vi è la possibilità di modifica dei record se non un nuovo inserimento.
 \subsubsection{Google Cloud Dataflow}
-Rilasciato al pubblico nel 2015, \href{https://cloud.google.com/dataflow/}{Google Cloud Dataflow} è lo strumento che permette di processare pipeline per l'integrazione, la preparazione e l'analisi di grandi quantità di dati.
+Rilasciato al pubblico nel 2015, Google Cloud Dataflow \cite{GoogleCloudDataflow} è lo strumento che permette di processare pipeline per l'integrazione, la preparazione e l'analisi di grandi quantità di dati.
 Il modello di pipeline consigliato è quello di Apache Beam che vedremo in seguito.
 \\ Tra i maggiori punti di forza troviamo:
 \begin{itemize}
@@ -45,7 +45,7 @@ Il modello di pipeline consigliato è quello di Apache Beam che vedremo in segui
 	\item Composizione di pipeline, e quindi job specifici, direttamente da codice;
 	\item Possibilità di utilizzo di dati da molteplici fonti, non solo da strumenti Google;
 	\item Ottima scalabilità interna in base agli effettivi bisogni del lavoro in esecuzione;
-	\item Buona granularità della specificazione dei \href{https://cloud.google.com/dataflow/docs/guides/specifying-exec-params?authuser=2\&hl=it}{parametri di esecuzione} della pipeline;
+	\item Buona granularità della specificazione dei parametri di esecuzione\cite{parametridiesecuzione} della pipeline;
 	\item Visualizzazione grafica della pipeline (Possibile immagine?????). 
 \end{itemize}
 Per quanto concerne l'utilizzo di questo prodotto, il team si esprime con un giudizio più che positivo dato anche la grande quantità di documentazione disponibile.
