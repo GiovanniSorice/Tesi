@@ -249,6 +249,7 @@
 	\dedicationpage
     %\abstractpage
 	\sommario
+	\acknowledgments
 	\tableofcontents
 	\phantomsection
 	\clearpage
@@ -362,9 +363,17 @@
 
 \newcommand{\acknowledgments}{
 	\phantomsection
-	\chapter*{Acknowledgments}
+	\chapter*{Ringraziamenti}
 	\noindent
 	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+}
+
+\newcommand{\convenzioni}{
+	\phantomsection
+	\chapter*{Convenzioni tipografiche}
+	\noindent
+	\input{frontmatter/convenzioni}
 	\vspace*{\fill} \newpage
 }
 
