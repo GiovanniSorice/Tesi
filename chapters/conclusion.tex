@@ -1,4 +1,67 @@
 %!TEX root = ../dissertation.tex
 \chapter{Conclusione}
 \label{conlusione}
-Analisi retrospettiva, cosa cambierei
+All'interno di questo capitolo vengono esposte le considerazioni oggettive e soggettive riguardante l'esperienza fatta. 
+\section{Consuntivo finale}
+Il progetto ha avuto la durata inizialmente prevista, anche se sono state apportate alcune modifiche alla pianificazione iniziale. Per questo motivo, riporto la pianificazione aggiornata all'ultima settimana di stage.
+\begin{itemize}
+	\item Comprensione e analisi delle componenti del progetto: 56 ore;
+	\item Realizzazione di pipeline batch al fine di popolare data lake su cui svolgere processamenti periodici : 160 ore;
+	\item Studio e applicazione del concetto di Data Ingestion: 10  ore;
+	\item Analisi, creazione e codifica job di classificazione all'interno del Docker container:40 ore;
+	\item Creazione e codifica job rilevamento delle anomalie tra dati giornalieri: 15 ore;
+	\item Studio e applicazione del concetto di Data Integration: 10  ore;
+	\item Integrazione finale tra le componenti principali della gestione dei dati: 29 ore;
+\end{itemize}
+\section{Considerazione sugli obiettivi}
+Di seguito vengono elencati in forma tabellare gli obiettivi con il loro relativo stato.
+\newcolumntype{K}{>{\centering\arraybackslash}m{10cm}}
+\normalsize
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|K|c|}
+	\hline
+	\textbf{Obiettivi obbligatori} &
+	\textbf{Stato} 
+	\endhead
+	\hline
+	Il sistema deve essere in grado di aggiornare periodicamente la concezione di normalità, per adattarsi al contesto dinamico. & Compeltato  \\ \hline 	 
+	Il sistema deve essere in grado di ricevere i flussi batch ed archiviarli dove desiderato. & Compeltato  \\ \hline 	 
+	Il sistema deve essere in grado di processare i flussi batch producendo i dataset di output richiesti. & Compeltato  \\ \hline 	 
+	I processi devono essere programmati per avviarsi periodicamente. & Compeltato  \\ \hline 	 
+	\caption[Tabella degli obiettivi obbligatori]{Obiettivi obbligatori}
+	\label{tabella:req3}
+\end{longtable}
+\renewcommand{\arraystretch}{1}
+\normalsize
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|K|c|}
+	\hline
+	\textbf{Obiettivi desiderabili} &
+	\textbf{Stato} 
+	\endhead
+	\hline
+	Il sistema deve riuscire ad aggiornarsi continuamente senza interrompere l'erogazione del servizio. & Compeltato  \\ \hline 	 
+	Il sistema deve essere in grado di scrivere i risultati su una struttura interrogabile via SQL. & Compeltato  \\ \hline 	 
+	Il sistema deve poter scalare le risorse in base al volume di dati. & Compeltato  \\ \hline 	 
+		\caption[Tabella degli obiettivi desiderabili]{Obiettivi desiderabili}
+	\label{tabella:req3}
+\end{longtable}
+\renewcommand{\arraystretch}{1}
+\normalsize
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|K|c|}
+	\hline
+	\textbf{Obiettivi facoltativi} &
+	\textbf{Stato} 
+	\endhead
+	\hline
+	Il sistema deve poter lavorare su dati archiviati su Elasticsearch. & Non implementato  \\ \hline 	 
+	Il sistema deve poter essere in grado di scrivere i propri output su DB NoSQL. & Non implementato  \\ \hline 	 
+	\caption[Tabella degli obiettivi facoltativi]{Obiettivi facoltativi}
+	\label{tabella:req3}
+\end{longtable}
+\renewcommand{\arraystretch}{1}
+
+Considerazioni ed osservazioni sugli obiettivi
+\section{Bilancio formativo}
+\section{Considerazioni personali}
