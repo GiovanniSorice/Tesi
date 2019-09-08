@@ -135,8 +135,12 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[tiny, md, sc]{titlesec}
 \setlength{\headheight}{15pt}
-\pagestyle{plain}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\nouppercase{\rightmark}}
+\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
 \RequirePackage{titling}
+
 
 % Front matter.
 \setcounter{tocdepth}{2}

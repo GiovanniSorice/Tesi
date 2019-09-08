@@ -1,7 +1,7 @@
 %!TEX root = ../dissertation.tex
 
 \chapter{Evoluzione dello stage}
-In questo capitolo verrà introdotto il progetto, spiegandone vincoli, obiettivi e motivi della scelta.
+In questo capitolo verrà introdotto il progetto, spiegandone vincoli, obiettivi, pianificazione e motivi della scelta.
 \section{La proposta di stage}
 La proposta di stage mi è stata fatta nei mesi successivi alla visita all'azienda svolta attraverso l'Università di Padova. Fin da subito il complesso e lo spirito aziendale mi sono sembrati adatti ad ospitare degli studenti volenterosi di sperimentare nuove tecnologie.
 \\
@@ -13,7 +13,7 @@ Per questo motivo e per il mio già precedente interessamento verso queste tecno
 \section{Il progetto}
 Il progetto si prefissava l'obiettivo di analizzare e costruire l'intero ciclo di vita del dato, secondo metodi, strumenti e tecniche innovative.
 \\
-Per essere maggiormente concreti, il progetto prevedeva l'implementazione di un sistema di \gls{ingestion} dei dati aziendali del cliente, che quindi comportasse l'estrapolazione di informazioni dal dato grezzo, con successiva classificazione degli utenti che interagivano con il sistema stesso, in modo da intercettare eventuali comportamenti sospetti.
+Per essere maggiormente concreti, il progetto prevedeva l'implementazione di un sistema di gestione dei dati aziendali del cliente, che quindi comportasse l'estrapolazione di informazioni dal dato grezzo, con successiva classificazione degli utenti che interagivano con il sistema stesso, in modo da intercettare eventuali comportamenti sospetti.
 \\
 Per svolgere questo progetto, prima del mio arrivo e dell'effettiva proposta, l'azienda ospitante ha svolto uno studio di fattibilità in modo da sottolineare eventuali carenze di informazioni, criticità e punti a favore del progetto.
 \\
@@ -44,11 +44,11 @@ Essi si dividono in:
 	\end{itemize}
 \end{itemize}
 \subsection{Vincoli}
-Durante i colloqui di esposizione del progetto di stage, sono sorti alcuni vincoli da soddisfare per svolgere al meglio lo stesso.\\
+Durante i colloqui di esposizione del progetto di stage, sono sorti alcuni vincoli da soddisfare per svolgerelo al meglio.
 \subsubsection{Vincoli temporali}
 La durata dello stage doveva essere al minimo di 300 ore e al massimo di 320, in modo da rispettare i crediti stabiliti all'interno del piano di studi, svolte tutte presso la sede in via Robert Koch 1/4 a Milano negli orari 9.00-13.00, 14.00-18.00.
 \subsubsection{Vincoli tecnologici}
-Utilizzo della suite \gls{Google Cloud} per lo sviluppo dell'ingestion dei dati e di Spark MLlib per la parte di Machine Learning.
+Utilizzo della suite \gls{Google Cloud} per lo sviluppo dell'ingestion dei dati e di Spark MLlib per la parte di riconoscimento delle anomalie.
 \section{Motivi della scelta}
 La scelta di abbracciare il progetto di Data Reply è dovuto principalmente a 4 motivi:
 \begin{itemize}
@@ -58,3 +58,58 @@ La scelta di abbracciare il progetto di Data Reply è dovuto principalmente a 4 
 	\item Possibilità di svolgere lo stage presso la sede di Milano, città molto dinamica e innovativa.
 \end{itemize}
 Questi motivi mi hanno convito a scegliere questa proposta per mettere alla prova le mie abilità.
+
+\section{Pianificazione del lavoro}
+Durante i colloqui svolti con il tutor aziendale, è stato redatto il piano di lavoro. Ciò ha portato la suddivisione dello stage in 8 parti, ognuna della durata di una settimana.
+\begin{itemize}
+	\item[] \textbf{Prima Settimana (40 ore)}
+	\begin{itemize}
+		\item Incontro con persone coinvolte nel progetto per discutere i requisiti e le richieste
+		relativamente al sistema da sviluppare;
+		\item Verifica credenziali e strumenti di lavoro assegnati;
+		\item Presa visione dell’infrastruttura esistente;
+		\item Formazione sulle tecnologie adottate.
+	\end{itemize}
+	\item[] \textbf{Seconda Settimana (40 ore)} 
+	\begin{itemize}
+		\item Comprensione strumenti di storicizzazione;
+		\item Analisi funzionamento filesystem distribuito;
+		\item Produzione script Python per produzione dati simulati.
+	\end{itemize}
+	\item[] \textbf{Terza Settimana (40 ore)} 
+	\begin{itemize}
+		\item Caricamento dati su filesystem distribuito;
+		\item Securizzazione accesso ai dati;
+		\item Studio teorico approccio statistico al problema.
+	\end{itemize}
+	\item[] \textbf{Quarta Settimana (40 ore)} 
+	\begin{itemize}
+		\item Comprensione strumenti di processamento;
+		\item Analisi funzionamento RDD;
+		\item Implementazione processo batch con Python e Spark.        
+	\end{itemize}
+	\item[] \textbf{Quinta Settimana (40 ore)} 
+	\begin{itemize}
+		\item Analisi funzionamento Dataframe;
+		\item Implementazione processo di elaborazione Spark;
+		\item Ingegnerizzazione soluzione batch.
+	\end{itemize}
+	\item[] \textbf{Sesta Settimana (40 ore)} 
+	\begin{itemize}
+		\item Test prestazionale processo spark;
+		\item Tuning prestazionale;
+		\item Studio applicazione real-time.
+	\end{itemize}
+	\item[] \textbf{Settima Settimana (40 ore)} 
+	\begin{itemize}
+		\item Storicizzazione dati su storage persistente;
+		\item Studio funzionamento Kafka;
+		\item Implementazione processo real-time con Spark Streaming.
+	\end{itemize}
+	\item[] \textbf{Ottava Settimana - Conclusione (40 ore)} 
+	\begin{itemize}
+		\item Costruzione layer accesso al dato persistente;
+		\item Ingegnerizzazione soluzione Spark Streaming;
+		\item Integrazione storage persistente.
+	\end{itemize}
+\end{itemize}
