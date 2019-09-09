@@ -75,19 +75,18 @@ Il modello di pipeline consigliato è quello di Apache Beam che vedremo in segui
 	\item Buona granularità della specificazione dei parametri di esecuzione\cite{parametridiesecuzione} della pipeline;
 	\item Visualizzazione grafica della pipeline (Possibile immagine?????). 
 \end{itemize}
-Per quanto concerne l'utilizzo di questo prodotto, il team si esprime con un giudizio più che positivo dato anche la grande quantità di documentazione disponibile.
-\subsubsection{Google Data Studio}
-Lanciato nel 2016, Google Data Studio\cite{GoogleDataStudio} è lo strumento di creazione e visualizzazione dei dati attraverso report e dashboard. L'idea che sta alla base di questo tool è la condivisione dei dati che sono presenti all'interno di GCP attraverso tabelle e grafici.
-\\ I maggiori vantaggi nell'utilizzarlo sono:
-\begin{itemize}
-	\item Accesso ai dati personali di GCP;
-	\item Possibilità di integrare i dati fra di loro con query standard SQL;
-	\item Condivisione a gruppi di utenti. 
-\end{itemize}
 
-Durante l'esperienza lo strumento si è rivelato molto acerbo nelle sue funzionalità e nell'utilizzo, oltre a dover attendere troppo tempo per il caricamento di dati e grafici. L'idea alla base è ottima, dato che vi è la possibilità di utilizzare i dati all'interno di GCP anche in continuo aggiornamento, d'altro canto la documentazione e l'interfaccia utente non rendono semplice quanto potrebbero la creazione di un report aziendale da presentare al cliente.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{figures/dataflow-job-full}
+	\caption[Esempio di pipeline dataflow.]{Esempio di pipeline dataflow
+		\label{fig:pipelinedataflow}}
+\end{figure}	
+
+
+Per quanto concerne l'utilizzo di questo prodotto, il team si esprime con un giudizio più che positivo dato anche la grande quantità di documentazione disponibile.
 \subsubsection{Google Cloud Function}
-Rilasciato in beta nel 2017, Google Cloud Functions \cite{GoogleCloudFunctions} è il perfetto intermediario tra gli eventi che vengono scaturiti nel cloud e l'invocazione di servizi API. Le origini degli eventi supportati sono:
+Rilasciato in beta nel 2017, Google Cloud Functions è il perfetto intermediario tra gli eventi che vengono scaturiti nel cloud e l'invocazione di servizi API. Le origini degli eventi supportati sono:
 \begin{itemize}
 	\item Cloud Pub/Sub;
 	\item Cloud Storage;
@@ -98,23 +97,32 @@ Rilasciato in beta nel 2017, Google Cloud Functions \cite{GoogleCloudFunctions} 
 Inoltre, per ogni tipologia di evento vi sono ulteriori specificazioni che non verranno trattate tutte in modo estensivo in questo elaborato.
 \\
 Per quanto concerne l'utilizzo svolto durante il progetto, il team ritiene questo strumento valido e con ottime potenzialità e margini di miglioramento. Uno svantaggio molto importante da sottolineare è la scarsa documentazioni presente nelle fonti ufficiali.
-\subsubsection{Google Cloud Composer}
-\url{https://cloud.google.com/composer/?hl=it}
 \subsection{Apache NiFi}
 \begin{quotation}
 An easy to use, powerful, and reliable system to process and distribute data.
 	\qauthor{NiFi Creator}
 \end{quotation}
 La descrizione che viene data nella documentazione di NiFi \cite{NiFi} riassume alla perferzione le caratteristiche di questo strumento e ciò che ci permette di fare.
-\\Innanzitutto, le sue funzioni sono proprio quelle di automatizzare lo "scorrere" del flusso dati all'interno del sistema in cui viene utilizzato. Le funzionalità sono molteplici e ben rodate, vanno dal semplice spostamento dei file, al filtraggio, composizione e conversione in diversi formati. La documentazione è molto esauriente, spiegando anche più del necessario tutti i passaggi da seguire per utilizzare un determinato componente. La semplicità e l'intuitività nel costruire il flusso di dati, rendono l'esperienza utente decisamente piacevole, anche grazie all'interfaccia grafica semplice e intuitiva. Altro punto a favore è l'affidabilità del prodotto e la grande quantità di componenti disponibili orientati alla sicurezza, così da rendere il passaggio di informazioni in più sicuro possibile.
+\\
+Innanzitutto, le sue funzioni sono proprio quelle di automatizzare lo "scorrere" del flusso dati all'interno del sistema in cui viene utilizzato. Le funzionalità sono molteplici e ben rodate, vanno dal semplice spostamento dei file, al filtraggio, composizione e conversione in diversi formati. La documentazione è molto esauriente, spiegando anche più del necessario tutti i passaggi da seguire per utilizzare un determinato componente. La semplicità e l'intuitività nel costruire il flusso di dati, rendono l'esperienza utente decisamente piacevole, anche grazie all'interfaccia grafica semplice e intuitiva. Altro punto a favore è l'affidabilità del prodotto e la grande quantità di componenti disponibili orientati alla sicurezza, così da rendere il passaggio di informazioni il più sicuro possibile.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.1]{figures/apache-nifi-logo}
 	\caption[Logo Google Cloud Platform.]{Logo Google Cloud Platform
 		\label{fig:logoGCP}}
-\end{figure}	
+\end{figure}
+\subsubsection{Google Data Studio}
+Lanciato nel 2016, Google Data Studio è lo strumento di creazione e visualizzazione dei dati attraverso report e dashboard. L'idea che sta alla base di questo tool è la condivisione dei dati che sono presenti all'interno di GCP attraverso tabelle e grafici.
+\\ I maggiori vantaggi nell'utilizzarlo sono:
+\begin{itemize}
+	\item Accesso ai dati personali di GCP;
+	\item Possibilità di integrare i dati fra di loro con query standard SQL;
+	\item Condivisione a gruppi di utenti. 
+\end{itemize}
+
+Durante l'esperienza lo strumento si è rivelato molto acerbo nelle sue funzionalità e nell'utilizzo, oltre a dover attendere troppo tempo per il caricamento di dati e grafici. L'idea alla base è ottima, dato che vi è la possibilità di utilizzare i dati all'interno di GCP anche in continuo aggiornamento, d'altro canto la documentazione e l'interfaccia utente non rendono semplice quanto potrebbero la creazione di un report aziendale da presentare al cliente.	
 \subsection{Apache Beam}
-Apache Beam è un implementazione del modello Dataflow \cite{modelloDataflow}, esso infatti fissa come definire ed eseguire pipeline sui dati di tipo \gls{ETL}, batch e streaming continui. Questo progetto nasce dopo il rilascio di un \gls{SDK} contenente un implementazione del modello Dataflow da parte di Google nel 2014, nel 2016 Google decise di concedere il core del proprio SDK per costituire il progetto \gls{OpenSource} Apache Beam.
+Apache Beam è un implementazione del modello Dataflow \cite{modelloDataflow}, esso infatti fissa come definire ed eseguire pipeline sui dati di tipo \gls{ETL} (extract, transform, and load ), batch e streaming continui. Questo progetto nasce dopo il rilascio di un software development kit  (\gls{SDK}) contenente un implementazione del modello Dataflow da parte di Google nel 2014, nel 2016 Google decise di concedere il core del proprio SDK per costituire il progetto \gls{OpenSource} Apache Beam.
 \\ I concetti alla base di questa implementazione, e quindi del modello Dataflow, possono essere riassunti nel cercare un modello il quale riesca a definire ed eseguire pipeline di tipo batch e streaming allo stesso tempo, senza dover differenziare le pipeline come nel modello Lambda architecture \cite{Lambdaarchitecture}.
 \\ Un tipico utilizzo di una pipeline può essere il seguente:
 \begin{figure}[h!]
@@ -132,7 +140,7 @@ Apache Beam è un implementazione del modello Dataflow \cite{modelloDataflow}, e
 Le azioni di maggiore interesse stanno nelle PTrasforms, infatti rende possibile processare ogni singolo elemento delle PCollection, effettuare raggruppamenti per uno o più elementi, unire  e partizionare le PCollections.
 La documetazione a disposizione è decisamente idonea e precisa rispetto alla potenzialità di utilizzo. Inoltre, essendo un progetto OpenSource vi è la possibilità di collaborare al continuo sviluppo, e quindi al successo, che questa tecnologia sta avendo.
 \subsection{Apache AirFlow}
-Apache AirFlow \cite{ApacheAirFlow} è una piattaforma per creare, schedulare e monitorare \gls{workflows}. Airflow, inoltre, cerca la soluzione più performante per l'esecuzione dei task, creando un Grafo Aciclico Diretto (meglio conosciuto come "\gls{DAGs}" cioe " Directed Acyclic Graphs") in modo da riconoscere le dipendenze tra i compiti stessi ed eseguire i task con meno dipendenze.
+Apache AirFlow è una piattaforma per creare, schedulare e monitorare \gls{workflows}. Airflow, inoltre, cerca la soluzione più performante per l'esecuzione dei task, creando un Grafo Aciclico Diretto (meglio conosciuto come "\gls{DAGs}" cioe " Directed Acyclic Graphs") in modo da riconoscere le dipendenze tra i compiti stessi ed eseguire i task con meno dipendenze.
 La scelta di utilizzare questa tecnologia è stata presa sia per la già precedente esperienza aziendale con essa, sia perché completamente compatibile e già installata all'interno di Google Cloud Composer. Data la sua notevole compatibilità ci ha permesso di soddisfare un requisito del cliente riguardante l'ingestion in tempo reale dei dati inviati.
 \subsection{Docker}
 Nato nel 2013, Docker è una piattaforma software che permette di creare build, testare e distribuire applicazioni con la massima rapidità. Docker raccoglie il software in unità standardizzate chiamate container che offrono tutto il necessario per la loro corretta esecuzione. L'utilizzo di Docker in questo progetto per la parte del sistema di classificazione è coerente con i principali pregi e funzionalità offerte da questo strumento.
@@ -144,7 +152,7 @@ Tra le principali funzionalità troviamo:
 	\item Facilità nella condivisione.
 \end{itemize}
 \subsection{Kafka}
-Apache Kafka è una piattaforma open source di stream processing, a creare una piattaforma a bassa latenza ed alta velocità per la gestione di dati in tempo reale.
+Apache Kafka è una piattaforma open source di stream processing, mira a creare una piattaforma a bassa latenza ed alta velocità per la gestione di dati in tempo reale.
 Nel progetto, funge da intermediario tra il database e il sistema di classificazione, per mantenere un flusso continuo di dati e scovare eventuali operazione sospette.
 \subsection{Apache Spark}
 Sviluppato all'interno dell'Università della California e poi donato ad Apache, Spark è un framework per il calcolo distribuito. 
@@ -152,11 +160,11 @@ All'interno di Apache Spark vi troviamo una moltitudine di funzionalità e libre
 \subsubsection{Apache Spark MlLib}
 All'interno di questa libreria, troviamo alcuni tra i più famosi e preformanti algoritmi di machine learning. Questa libreria è stata utilizzata per la sua semplicità di utilizzo e per le sue prestazioni ottime nei confronti delle altre librerie.
 \\
-\textbf{K-Means} \cite{k-means} è  l'algoritmo utilizzato nel progetto, scelto per iniziare una fase di perlustrazione della libreria e mantenuto dato lo stato ancora non avanzato del progetto nella parte di analisi.
+\textbf{K-Means} \cite{k-means} è  l'algoritmo utilizzato nel progetto, scelto per iniziare una fase di perlustrazione della libreria e mantenuto dato lo stato ancora non avanzato del progetto nella parte di analisi ed utilizzo delle informazioni.
 \section{Strumenti}
 Gli strumenti di lavoro utilizzati sono stati scelti in base agli standard aziendali e per mantenere la massima compatibilità con il pacchetto GCP.
 \\
-Python è stato il linguaggio di riferimento per il progetto, la decisione è stata presa tenendo in considerazione i linguaggi supportati da GCP e pensando all'utilizzo nella parte di riconoscimento delle anomalie. Infatti, la numerosa presenza di librerie di supporto e la presenza di molta documentazione a supporto per il medesimo linguaggio ha spostato l'ago della bilancia su Python al posto di linguaggi comunque molto diffiusi e conosciuti come Java. Inoltre, essendo un linguaggio non studiato durante i corsi di laurea, abbiamo ritenuto fosse un'ottima occasione per iniziare ad utilizzarlo.
+Python è stato il linguaggio di riferimento per il progetto, la decisione è stata presa tenendo in considerazione i linguaggi supportati da GCP e pensando all'utilizzo nella parte di riconoscimento delle anomalie. Infatti, la numerosa presenza di librerie di supporto e la presenza di molta documentazione a supporto per il medesimo linguaggio ha spostato l'ago della bilancia su Python al posto di linguaggi comunque molto diffiusi e conosciuti come Java. Inoltre, essendo un linguaggio non studiato durante i corsi di laurea, ho ritenuto fosse un'ottima occasione per iniziare ad utilizzarlo.
 \\
 PyCharm è stata conseguenza diretta dell'uso di Python, dato che è un'ottimo IDE che offre assistenza durante la codifica. Oltre a garantire una buona compatibilità con GCP, fondamentale per il ruolo che ricopre.
 \\
