@@ -259,13 +259,13 @@
 	\clearpage
 
 	% figure listing - required if you have any figures
-	\addcontentsline{toc}{chapter}{Elenco delle figure}
+	%\addcontentsline{toc}{chapter}{Elenco delle figure}
 	\listoffigures
 	\phantomsection
 	\cleardoublepage
 
 	% table listing - required if you have any tables
-	\addcontentsline{toc}{chapter}{Elenco delle tabelle}
+	%\addcontentsline{toc}{chapter}{Elenco delle tabelle}
 	\listoftables
 	\phantomsection
 	\cleardoublepage
