@@ -1,6 +1,8 @@
 %!TEX root = ../dissertation.tex
 \chapter{Sviluppo}\label{ch:sviluppo}
-In questa sezione, verranno introdotte le tecnologie che sono state utilizzate nel progetto di stage e verrà descritto come sono state integrate. All'interno delle sezione di integrazione capiremo come è stato possibile costruire un sistema che si occupi di selezionare i file corretti da leggere, importare il contenuto manipolato all'interno di un applicativo interrogabile dall'esterno, avviare delle analisi sui dati e creare dei report sugli stessi.
+In questa sezione, verranno introdotte le tecnologie che sono state utilizzate nel progetto di stage e verrà descritto come sono state integrate. 
+\\
+All'interno delle sezione di integrazione capiremo come è stato possibile costruire un sistema che si occupi di selezionare i file corretti da leggere, importare il contenuto manipolato all'interno di un applicativo interrogabile dall'esterno, avviare delle analisi sui dati e creare dei report sugli stessi.
 \section{Integrazione}
 \begin{figure}[h!]
 	\centering
@@ -9,16 +11,16 @@ In questa sezione, verranno introdotte le tecnologie che sono state utilizzate n
 		\label{fig:workflow}}
 \end{figure}	
 L'integrazione delle tecnologie elencate in §\ref{GoogleCloud}{}, ha portato a stabilire un vero e proprio ciclo di vita del dato.
-La gestione del dato inizia con il caricamento dei file all'interno di un server SFTP da parte del cliente. Tramite Apache NiFi, avviene una prima pre-elaborazione. Infatti, vengono accettati solo file con estensione \emph{XML} o \emph{evtx}, nel caso di file differenti questi vengono scartati. La pre-elaborazione la troviamo nella validazione e conversione dei file \emph{evtx} in \emph{XML} così da uniformare e generalizzare il più possibile le procedure di \emph{ingestion} dei dati.
+La gestione del dato inizia con il caricamento dei file all'interno di un server SFTP da parte del cliente. Tramite Apache NiFi, avviene una prima pre-elaborazione. Vengono accettati solo file con estensione \emph{XML} o \emph{evtx}, nel caso di file differenti questi vengono scartati. La pre-elaborazione consiste nella validazione e conversione dei file \emph{evtx} in \emph{XML} così da uniformare e generalizzare il più possibile le procedure di \emph{ingestion} dei dati.
 \\
-Attraverso Apache Nifi, i file vengono spostati all'interno di Google Cloud Storage, il quale, al trasferimento di ogni file, scatena l'avvio delle Google Cloud Function. Come descritto all'interno di §\ref{GoogleCloudFunction}{}, Google Cloud Function offre la possibilità di essere avviata tramite eventi, in questo caso troviamo l'utilizzo dell'origine Cloud Storage di tipo \emph{finalize}. Tramite la Function, viene avviato il processo di \emph{ingestion} sul file appena trasferito tramite l'attivazione del file DAGs all'interno di AirFlow.
+Attraverso Apache Nifi, i file vengono spostati all'interno di Google Cloud Storage, il quale, al trasferimento di ogni file, provoca l'avvio delle Google Cloud Function. Come descritto all'interno di §\ref{GoogleCloudFunction}{}, Google Cloud Function offre la possibilità di essere avviata tramite eventi, in questo caso troviamo l'utilizzo dell'origine Cloud Storage di tipo \emph{finalize}. Attraverso le Function, viene avviato il processo di \emph{ingestion} sul file appena trasferito tramite l'attivazione del file DAGs all'interno di AirFlow.
 \\
 La fase di \emph{Data Processing} è composta da alcuni \emph{job} Google Cloud Dataflow scritti in Python e caratterizzati dall'utilizzo di Apache Beam per la creazione delle pipeline dei dati.
-Il processamento dei dati è mirato al rendere i dati maggiormente leggibili e consultabili decodificandoli e aggregandoli. Dopodiché, vengono scritti all'interno di apposite tabelle Google Cloud BigQuery.
+Il processamento dei dati è mirato al rendere i dati maggiormente leggibili e consultabili decodificandoli e aggregandoli. Dopodiché, gli stessi vengono scritti all'interno di apposite tabelle Google Cloud BigQuery.
 \\
 Per quanto riguarda la \emph{Data Analysis}, il cliente ha richiesto 2 tipologie distinte di analisi dei dati.
-La prima riguardava il confronto dei dati giornalieri con i dati storicizzati, per capire se vi fossero possibili anomalie riscontrate (come ad esempio la forte diminuzione dell'utilizzo di determinati strumenti), e nel caso di riscontri, immediatamente notificarlo al responsabile del settore tramite email.
-La secondo riguardava la classificazione degli utenti che utilizzano il sistema del cliente per trovare eventuali cambi di categorie non autorizzate (che corrispondono ad anomalie). Per concludere il processo da dato ad informazione, abbiamo costruito un sistema che, tramite Kafka e quindi secondo lo schema produttore-consumatore in \emph{streaming}, invia dei dati ad un algoritmo di \emph{machine learning} sviluppato tramite Apache Spark (più in particolare tramite la libreria Apache Spark MLlib) che raggruppa gli utenti su base settimanale, conserva i valori dei raggruppamenti e verifica che ogni utente non abbia cambi di cluster in modo anomalo.\\
+La prima riguardava il confronto dei dati giornalieri con i dati storicizzati, per capire se fossero state riscontrate possibili anomalie (come ad esempio la forte diminuzione dell'utilizzo di determinati strumenti), e nel caso di esito positivo, immediatamente notificarlo al responsabile del settore tramite email.
+La seconda riguardava la classificazione degli utenti che utilizzano il sistema del cliente per trovare eventuali cambi di categorie non autorizzate (che corrispondono ad anomalie). Per concludere il processo da dato ad informazione, abbiamo costruito un sistema che, tramite Kafka e secondo lo schema produttore-consumatore in \emph{streaming}, invia dei dati ad un algoritmo di \emph{machine learning} sviluppato tramite Apache Spark (più in particolare tramite la libreria Apache Spark MLlib) che raggruppa gli utenti su base settimanale, conserva i valori dei raggruppamenti e verifica che ogni utente non abbia cambi di cluster in modo anomalo.\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.5]{figures/kafka_spark}
@@ -32,7 +34,9 @@ Al termine di questo processo, abbiamo il definitivo passaggio da semplice dato 
 \subsection{Google Cloud}\label{GoogleCloud}
 Il principale servizio utilizzato durante il progetto è stato Google Cloud, in esso troviamo una moltitudine di strumenti utili allo sviluppo, all'esecuzione e all'interazione di progetti riguardanti \emph{big data} e Intelligenza Artificiale. Inoltre, importante risulta la possibilità di consultare, manipolare e presentare i dati.
 Il progetto Google Cloud (anche detto Google Cloud Platform o GCP), viene lanciato nel 2008 con uno dei suoi servizi di punta ancora oggi  \Gls{App Engine}. Nell'arco degli anni sia il bacino di utenti, sia i servizi offerti sono via via aumentati. Oggigiorno i suoi clienti \cite{clienti} sono molti, tra cui grandi aziende, e le funzionalità di spicco sono molteplici, i campi di maggiore interesse riguardano strumenti di Computazione, Immagazzinamento \& \emph{Database}, \emph{big data}, \emph{Cloud AI} e \emph{IoT}.
+\\
 Per quanto riguarda l'esperienza personale, ho trovato Google Cloud un buon servizio, con dei problemi da risolvere sulla completezza della documentazioni e a volte con grafiche da migliorare, ma comunque un ottimo compromesso tra qualità e prezzo.
+\\
 Il resto della sezione introduce il prodotti e i servizi GCP utilizzati durante lo stage.
 \begin{figure}
 	\centering
@@ -171,9 +175,9 @@ All'interno di questa libreria, troviamo alcuni tra i più famosi e preformanti 
 \section{Strumenti}
 Gli strumenti di lavoro utilizzati sono stati scelti in base agli standard aziendali e per mantenere la massima compatibilità con il pacchetto GCP.
 \\
-Python è stato il linguaggio di riferimento per il progetto, la decisione è stata presa tenendo in considerazione i linguaggi supportati da GCP e pensando all'utilizzo nella parte di riconoscimento delle anomalie. Infatti, la numerosa presenza di librerie di supporto e la presenza di molta documentazione a supporto per il medesimo linguaggio ha spostato l'ago della bilancia su Python al posto di linguaggi comunque molto diffusi e conosciuti come Java. Inoltre, essendo un linguaggio non studiato durante i corsi di laurea, ho ritenuto fosse un'ottima occasione per iniziare ad utilizzarlo.
+Python è stato il linguaggio di riferimento per il progetto. La decisione è stata presa tenendo in considerazione i linguaggi supportati da GCP e pensando all'utilizzo nella parte di riconoscimento delle anomalie. Infatti, la numerosa presenza di librerie di supporto e la presenza di molta documentazione a supporto per il medesimo linguaggio ha spostato l'ago della bilancia su Python al posto di linguaggi comunque molto diffusi e conosciuti come Java. Inoltre, essendo un linguaggio non studiato durante i corsi di laurea, ho ritenuto fosse un'ottima occasione per iniziare ad utilizzarlo.
 \\
-PyCharm è stata conseguenza diretta dell'uso di Python, dato che è un'ottimo \emph{IDE} che offre assistenza durante la codifica. Oltre a garantire una buona compatibilità con GCP, fondamentale per il ruolo che ricopre.
+PyCharm è stata conseguenza diretta dell'uso di Python, dato che è un'ottimo \emph{IDE} il quale offre assistenza durante la codifica. Oltre a garantire una buona compatibilità con GCP, fondamentale per il ruolo che ricopre.
 \\
 Aderendo alle consuetudini aziendali, il sistema di controllo di versione adottato è Git, attraverso la piattaforma GitLab. Si è inoltre deciso di utilizzare GitLab Mattermost per la comunicazione all'interno del team.
 
