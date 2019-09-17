@@ -37,7 +37,7 @@ Il punto cruciale del sotto-progetto riguardante l'\emph{ingestion} è stato lo 
 \\
 Per quanto riguarda la classificazione degli utenti, si è scelto di intraprendere una strada che potesse portare a dei vantaggi di utilizzo e portabilità, ovvero si è deciso di utilizzare un \gls{container} Docker per lo sviluppo ed utilizzo degli algoritmi di classificazione.
 Questo è stato fatto per agevolare l'installazione e configurazione in locale dell'intero pacchetto di strumenti da utilizzare, tra cui Spark, Kafka e Hadoop.
-Ovviamente, l'utilizzo di Docker ha comportato la scelta del miglior compromesso per la creazione di un container adatto. Dato l'ampio pacchetto di strumenti da studiare in autonomia, abbiamo deciso quindi di utilizzare un container Cloudera \cite{containercloudera} già contenete la maggior parte degli strumenti necessari per sviluppare un processo di classificazione degli utenti.
+Ovviamente, l'utilizzo di Docker ha comportato la scelta del miglior compromesso per la creazione di un container adatto. Dato l'ampio pacchetto di strumenti da studiare in autonomia, abbiamo deciso quindi di utilizzare un container Cloudera \cite{containercloudera} già contenente la maggior parte degli strumenti necessari per sviluppare un processo di classificazione degli utenti.
 Inoltre, per far si che i dati venissero continuamente aggiornati, come effettivamente succede nella fase di \emph{ingestion}, abbiamo deciso di utilizzare Kafka Straming per mantenere un flusso continuo di verifica delle anomalie, così da mantenere in costante aggiornamento il cliente.
 
 \section{Requisiti}

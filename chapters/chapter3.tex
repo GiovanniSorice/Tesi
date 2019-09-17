@@ -18,17 +18,26 @@ Attraverso Apache Nifi, i file vengono spostati all'interno di Google Cloud Stor
 La fase di \emph{Data Processing} è composta da alcuni \emph{job} Google Cloud Dataflow scritti in Python e caratterizzati dall'utilizzo di Apache Beam per la creazione delle pipeline dei dati.
 Il processamento dei dati è mirato al rendere i dati maggiormente leggibili e consultabili decodificandoli e aggregandoli. Dopodiché, gli stessi vengono scritti all'interno di apposite tabelle Google Cloud BigQuery.
 \\
-Per quanto riguarda la \emph{Data Analysis}, il cliente ha richiesto 2 tipologie distinte di analisi dei dati.
+Per quanto riguarda la \emph{Data Analysis}, il cliente ha richiesto due tipologie distinte di analisi dei dati.
 La prima riguardava il confronto dei dati giornalieri con i dati storicizzati, per capire se fossero state riscontrate possibili anomalie (come ad esempio la forte diminuzione dell'utilizzo di determinati strumenti), e nel caso di esito positivo, immediatamente notificarlo al responsabile del settore tramite email.
 La seconda riguardava la classificazione degli utenti che utilizzano il sistema del cliente per trovare eventuali cambi di categorie non autorizzate (che corrispondono ad anomalie). Per concludere il processo da dato ad informazione, abbiamo costruito un sistema che, tramite Kafka e secondo lo schema produttore-consumatore in \emph{streaming}, invia dei dati ad un algoritmo di \emph{machine learning} sviluppato tramite Apache Spark (più in particolare tramite la libreria Apache Spark MLlib) che raggruppa gli utenti su base settimanale, conserva i valori dei raggruppamenti e verifica che ogni utente non abbia cambi di cluster in modo anomalo.\\
+Al termine di questo processo, abbiamo il definitivo passaggio da semplice dato ad effettiva informazione per cliente tramite i report e le \emph{dashboard} riassuntive di Google Data Studio. Questa fase viene di norma chiamata \emph{Data Integration}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.5]{figures/kafka_spark}
 	\caption[Workflow integrazione Kafka e Spark.]{\emph{Workflow} integrazione Kafka e Spark all'interno di Docker Container.
 		\label{fig:workflow2}}
 \end{figure}	
-
-Al termine di questo processo, abbiamo il definitivo passaggio da semplice dato ad effettiva informazione per cliente tramite i report e le \emph{dashboard} riassuntive di Google Data Studio. Questa fase viene di norma chiamata \emph{Data Integration}.
+\subsection{Valutazione Data Analysis}
+La valutazione della fase di Data Analysis è stata svolta in modi diversi per le due tipologie richieste dal cliente.
+\\
+La valutazione del confronto dei dati giornalieri con quelli storicizzati è stata fatta attraverso la creazione di dati simulati, inserendo anomalie di diversa entità così da calibrare al meglio la soglia di invio delle email al responsabile aziendale. Il \emph{dataset} creato era composto da 7500 elementi, di cui 13 erano anomalie.
+\\
+Seguendo l'esempio portato in precedenza, nel caso in cui l'utilizzo di un dato strumento fosse aumentato vertiginosamente il responsabile sarebbe stato avvisato. La soglia minima per attestare un'anomalia, in accordo con il cliente, è stata fissata al 50\% in più della media dei dati storicizzati. All'interno dell'email al responsabile, troviamo anche l'indicazione di quanto la soglia sia stata superata, in modo da tenere traccia e migliorare la resa delle segnalazioni.
+\\
+Al termine della fase di test, i risultati ottenuti sono stati valutati come accettabili, con un 90\% circa di \emph{precision} e 85\% circa di \emph{recall}.
+\\
+Per quanto riguarda la valutazione dell'algoritmo di \emph{clustering}, anche qui troviamo la creazione di dati simulati con all'interno utenti appositamente anomali, in questo caso il dataset comprendeva 12000 record di cui 21 anomali. Ho notato che l'algoritmo utilizzato non è ottimale, infatti con l'utilizzo degli stessi dati potrebbe tendere alla scelta di diversi nuclei dei \emph{cluster} a seconda dei punti iniziali dell'algoritmo. Per questo motivo la valutazione è soddisfacente, ma migliorabile tramite l'utilizzo di algoritmi di \emph{clustering} più precisi ed efficienti. Nella fase di test i risultati non sono stati ottimali: 75\% circa di \emph{precision} e 60\% circa di \emph{recall}. Per questo motivo vi sarà bisogno di una fase di studio del problema aggiuntiva.
 
 \section{Tecnologie}
 \subsection{Google Cloud}\label{GoogleCloud}
@@ -38,7 +47,7 @@ Il progetto Google Cloud (anche detto Google Cloud Platform o GCP), viene lancia
 Per quanto riguarda l'esperienza personale, ho trovato Google Cloud un buon servizio, con dei problemi da risolvere sulla completezza della documentazioni e a volte con grafiche da migliorare, ma comunque un ottimo compromesso tra qualità e prezzo.
 \\
 Il resto della sezione introduce il prodotti e i servizi GCP utilizzati durante lo stage.
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.3]{figures/google-cloud-platform}
 	\caption[Logo Google Cloud Platform.]{Logo Google Cloud Platform.
@@ -150,7 +159,7 @@ La scelta di utilizzare questa tecnologia è stata presa sia per la già precede
 Nato nel 2013, Docker è una piattaforma software che permette di creare \emph{build}, testare e distribuire applicazioni con la massima rapidità. Docker raccoglie il software in unità standardizzate chiamate container che offrono tutto il necessario per la loro corretta esecuzione. L'utilizzo di Docker in questo progetto per la parte del sistema di classificazione è coerente con i principali pregi e funzionalità offerte da questo strumento.
 Tra le principali funzionalità troviamo:
 \begin{itemize}
-	\item Integrazione con i maggiori infrastrutture;
+	\item Integrazione con le maggiori infrastrutture;
 	\item Portabilità;
 	\item Controllo di versione e riutilizzo dei componenti;
 	\item Facilità nella condivisione.

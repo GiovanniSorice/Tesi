@@ -321,10 +321,11 @@
 	  \@advisor \hfill \@author\\
 	  Università di Padova \\
 	  \vspace{6pt}
-	  \textit{Tutor Esterno} \\
-	  \@coadvisorOne \\
-	  \vspace{10pt}
+	  %\textit{Tutor Esterno} \\
+	  %\@coadvisorOne \\
+	  %\vspace{10pt}
 	\end{flushleft}
+	  \vspace{170pt}
     \textbf{Anno Accademico 2018 - 2019}
 	\end{normalsize}
 	
