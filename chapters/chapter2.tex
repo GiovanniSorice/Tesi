@@ -3,7 +3,7 @@
 In questo capitolo analizzeremo le metodologie di lavoro, i problemi riscontrati e i risultati ottenuti.
 \section{Metodo di lavoro}
 Dopo un'attenta analisi delle esigenze di questo progetto, la metodologia che abbiamo deciso di utilizzare è Agile Kanban. Questa metodologia, ci ha permesso di avere un'alta flessibilità sui task da svolgere, una visione ampia del progetto e il focus su una singola attività alla volta.
-La metodologia Kanban è stata scelta anche per affrontare l'esiguo numero del team, composto da sole 2 persone, con effettivamente solo una che lavorava a pieno regime su di esso.
+La metodologia Kanban è stata scelta anche per affrontare l'esiguo numero del team, composto da sole due persone, con effettivamente solo una che lavorava a pieno regime su di esso.
 Questo perché rendeva un'ottima visione dell'insieme delle attività da svolgere, in progresso e già svolte, oltre a non necessitare di ruoli predefiniti come nell'\Gls{Agile Scrum}
 \paragraph{Metodologia kanban}
 Fa parte della famiglia delle metodologie agile, alla base vi è l'utilizzo di una lavagna nella quale vi è specificato uno stato per ogni colonna presente.
@@ -13,12 +13,12 @@ Fa parte della famiglia delle metodologie agile, alla base vi è l'utilizzo di u
 	\caption[Esempio lavagna Kanban.]{Esempio lavagna Kanban.
 		\label{fig:kanban}}
 \end{figure}	
-Quello sopra riportato è uno degli esempi più semplici di lavagna Kanban, nella quale ogni task deve assumere tre stati per considerarsi completato "ToDo", "Doing" e "Done". Solitamente ogni componente del team ha la responsabilità di portare a completamente un solo task alla volta, così da evitare sovrapposizioni e confusione.
+Quello riportato in figura \ref{fig:kanban} è uno degli esempi più semplici di lavagna Kanban, nella quale ogni task deve assumere tre stati per considerarsi completato "ToDo", "Doing" e "Done". Solitamente ogni componente del team ha la responsabilità di portare a completamente un solo task alla volta, così da evitare sovrapposizioni e confusione.
 \\ 
 Questa metodologia ha sicuramente giovato al progetto dato l'alto livello di flessibilità garantito e necessario al rispetto dalle richieste periodiche del cliente.
 \paragraph{Trello}
 Dato che i componenti del team difficilmente sarebbero riusciti a condividere lo stesso spazio di lavoro, inteso come luogo fisico, abbiamo deciso di utilizzare una lavagna digitale fornita da Trello.
-\\ Trello rende disponibile gratuitamente online un ottima implementazione dei principi esposti all'interno della metodologia Kanban, gli elementi chiave risultano essere 3: la lavagna, le liste (o anche colonne della lavagna) e le card (cioè i singoli task).
+\\ Trello rende disponibile gratuitamente online un ottima implementazione dei principi esposti all'interno della metodologia Kanban, gli elementi chiave risultano essere tre: la lavagna, le liste (o anche colonne della lavagna) e le card (cioè i singoli task).
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.08]{figures/trello-logo}
@@ -31,14 +31,14 @@ Affrontare sfide, problemi e quesiti di carattere tecnologico, architetturale e 
 I problemi affrontati durante questo progetto sono molteplici e vanno dall'analisi e scelta delle tecnologie da utilizzare all'integrazione tra le stesse.
 \\
 Per circoscrivere le problematiche abbiamo deciso di sviluppare il progetto in due sotto-progetti autonomi. 
-Il primo tratta dell'\emph{ingestion} dei dati e il secondo dell'utilizzo dei dati con il fine di categorizzare gli utenti. Da questi quindi, derivano diverse tipologie di problemi, tra cui la scelta e lo studio degli strumenti e delle \gls{best practices}.
+Il primo tratta dell'\emph{ingestion} dei dati e il secondo dell'utilizzo dei dati con il fine di categorizzare gli utenti. Da questi quindi, derivano diverse tipologie di problemi, tra cui la scelta e lo studio degli strumenti e delle \emph{\gls{best practices}}.
 \\
 Il punto cruciale del sotto-progetto riguardante l'\emph{ingestion} è stato lo studio delle tecnologie riguardanti Google Cloud Platform e con esso le conseguenti scelte obbligate, come lo studio di Apache Beam, l'utilizzo di sole librerie compatibili con Google Cloud ed i suoi strumenti.
 \\
 Per quanto riguarda la classificazione degli utenti, si è scelto di intraprendere una strada che potesse portare a dei vantaggi di utilizzo e portabilità, ovvero si è deciso di utilizzare un \gls{container} Docker per lo sviluppo ed utilizzo degli algoritmi di classificazione.
 Questo è stato fatto per agevolare l'installazione e configurazione in locale dell'intero pacchetto di strumenti da utilizzare, tra cui Spark, Kafka e Hadoop.
 Ovviamente, l'utilizzo di Docker ha comportato la scelta del miglior compromesso per la creazione di un container adatto. Dato l'ampio pacchetto di strumenti da studiare in autonomia, abbiamo deciso quindi di utilizzare un container Cloudera \cite{containercloudera} già contenente la maggior parte degli strumenti necessari per sviluppare un processo di classificazione degli utenti.
-Inoltre, per far si che i dati venissero continuamente aggiornati, come effettivamente succede nella fase di \emph{ingestion}, abbiamo deciso di utilizzare Kafka Straming per mantenere un flusso continuo di verifica delle anomalie, così da mantenere in costante aggiornamento il cliente.
+Inoltre, per far si che i dati venissero continuamente aggiornati, come effettivamente succede nella fase di \emph{ingestion}, abbiamo deciso di utilizzare Kafka Streaming per mantenere un flusso continuo di verifica delle anomalie, così da mantenere in costante aggiornamento il cliente.
 
 \section{Requisiti}
 \subsection{Struttura}
@@ -46,7 +46,6 @@ Ogni requisito è descritto dalla seguente struttura:
 \begin{itemize}
 	\item Tipo;
 	\item Importanza;
-	\item Stato implementazione;
 	\item Fonti.
 \end{itemize}
 
@@ -54,14 +53,14 @@ Inoltre, a ciascun requisito corrisponde un codice identificativo cosi composto:
 $$ \textbf{R \{importanza\}.\{tipo\}.\{identificativo\}  } $$
 \begin{itemize}
 	\item R specifica che si tratta di un requisito;
-	\item importanza identifica la rilevanza del requisito e può assumere 3 valori:
+	\item Importanza identifica la rilevanza del requisito e può assumere 3 valori:
 	\begin{itemize}
 		\item 0: indica che il requisito è obbligatorio e il suo soddisfacimento dovrà necessariamente avvenire;
 		\item 1: indica che il requisito è desiderabile, cioè il suo soddisfacimento può portare maggiore completezza al sistema ma non è fondamentale per lo stesso;
 		\item 2: indica che il requisito è opzionale, e quindi la decisione di implementarlo o meno verrà presa dopo le dovute considerazioni.
 	\end{itemize}
-	\item tipo distingue se si tratta di un requisito funzionale (F), di qualità (Q), di prestazione (P) o di vincolo (V);
-	\item identificativo è un numero progressivo che identifica i sottocasi.
+	\item Tipo distingue se si tratta di un requisito funzionale (F), di qualità (Q), di prestazione (P) o di vincolo (V);
+	\item Identificativo è un numero progressivo che identifica i sottocasi.
 \end{itemize}
 
 \subsection{Tabella dei requisiti}
@@ -76,26 +75,26 @@ Per assolvere gli obiettivi del progetto e per rispondere in modo concreto ai pr
 	\textbf{Fonte}\\
 	\hline
 	\endhead
-	\hypertarget{R0F1}{R0F1} & Il sistema deve essere in grado di trasferire i file con estensione \emph{evtx} e \emph{XML} dal server SFTP a Google Cloud Storage. & Interno  \\ \hline 	 
+	\hypertarget{R0F1}{R0F1} & Il sistema deve essere in grado di trasferire i file con estensione \emph{evtx} e \emph{XML} dal server SFTP a Google Cloud Storage. & Cliente  \\ \hline 	 
 	\hypertarget{R1F1.1}{R1F1.1} & Il sistema deve essere in grado di verificare la corretta estensione dei file. & Interno  \\ \hline 	 
 	\hypertarget{R1F1.2}{R1F1.2} & Il sistema deve essere in grado di scartare i file con una non corretta estensione. & Interno  \\ \hline 	 
 	\hypertarget{R1F1.3}{R1F1.3} & Il sistema deve essere in grado di validare i file con estensione \emph{evtx}. & Interno  \\ \hline 	 
 	\hypertarget{R1F1.4}{R1F1.4} & Il sistema deve essere in grado di convertire i file \emph{evtx} in \emph{XML}. & Interno  \\ \hline 	 
-	\hypertarget{R0F2}{R0F2} & Il sistema deve essere in grado di aggiornarsi periodicamente. & Interno  \\ \hline 	 
+	\hypertarget{R0F2}{R0F2} & Il sistema deve essere in grado di aggiornarsi periodicamente. & Cliente  \\ \hline 	 
 	\hypertarget{R1F2.1}{R1F2.1} & Il sistema deve essere in grado verificare la presenza di nuovi file all'interno del server SFTP. & Interno  \\ \hline 	 
 	\hypertarget{R1F2.2}{R1F2.2} & Il sistema deve essere in grado di avviare il processo di \emph{ingestion} dei file ad ogni nuovo arrivo. & Interno  \\ \hline 	 
 	\hypertarget{R1F2.2.1}{R1F2.2.1} & Il sistema deve essere in grado di notificare l'arrivo di nuovi file all'interno del Bucket Google Cloud Storage. & Interno  \\ \hline 	 
 	\hypertarget{R1F2.2.2}{R1F2.2.2} & Il sistema deve essere in grado di avviare il processo di \emph{ingestion} una volta ricevuta la notifica dal Bucket Google Cloud Storage. & Interno  \\ \hline 	 
 	\hypertarget{R0F3}{R0F3} & Il sistema deve essere in grado di processare i flussi \emph{batch} producendo i \emph{dataset} di output
-	richiesti. & Interno  \\ \hline 	 
+	richiesti. & Cliente  \\ \hline 	 
 	\hypertarget{R0F3.1}{R0F3.1} & Il sistema deve essere in grado di archiviare i file di output all'interno del Bucket Google Cloud Storage. & Interno  \\ \hline 	 
 	\hypertarget{R1F3.2}{R1F3.2} & Il sistema deve essere in grado di archiviare i file di output all'interno di Google Cloud BigQuery. & Interno  \\ \hline 	 
-	\hypertarget{R0F4}{R0F4} & I processi devono essere schedulati per avviarsi periodicamente. & Interno  \\ \hline 	 
+	\hypertarget{R0F4}{R0F4} & I processi devono essere schedulati per avviarsi periodicamente. & Cliente  \\ \hline 	 
 	\hypertarget{R1F5}{R1F5} & Il sistema deve riuscire ad aggiornarsi continuamente senza interrompere l’erogazione del
-	servizio. & Interno  \\ \hline 	 
-	\hypertarget{R1F6}{R1F6} & Il sistema deve essere in grado di scrivere i risultati su una struttura interrogabile via SQL. & Interno  \\ \hline 	 
+	servizio. & Cliente  \\ \hline 	 
+	\hypertarget{R1F6}{R1F6} & Il sistema deve essere in grado di scrivere i risultati su una struttura interrogabile via SQL. & Cliente  \\ \hline 	 
 
-	\hypertarget{R1F7}{R1F7} & Il sistema deve essere in grado di classificare i dati all'interno dei file provenienti dal processo di \emph{ingestion}. & Interno  \\ \hline 	 
+	\hypertarget{R1F7}{R1F7} & Il sistema deve essere in grado di classificare i dati all'interno dei file provenienti dal processo di \emph{ingestion}. & Cliente  \\ \hline 	 
 	\hypertarget{R1F7.1}{R1F7.1} & Il sistema deve essere in grado di classificare i dati all'interno dei file provenienti dal processo di \emph{ingestion} per singolo giorno. & Interno  \\ \hline
 	\hypertarget{R1F7.2}{R1F7.2} & Il sistema deve essere in grado di classificare i dati all'interno dei file provenienti dal processo di \emph{ingestion} per singolo file su base multi-giorno. & Interno  \\ \hline 	 
 	\hypertarget{R1F8}{R1F8} & Il sistema deve essere in grado di inviare una email al manager responsabile in caso di anomalie nei dati classificati. & Interno  \\ \hline 	 
@@ -113,7 +112,7 @@ Per assolvere gli obiettivi del progetto e per rispondere in modo concreto ai pr
 	\hypertarget{R1V1}{R1V1} & Il sistema deve utilizzare Spark MLlib per il sistema di classificazione. & Interno  \\ \hline 	 
 	\hypertarget{R2V1}{R2V1} & Il sistema di classificazione deve essere sviluppato all'interno di un container Docker. & Interno  \\ \hline 	 
 	\hypertarget{R1P1}{R1P1} & Il sistema deve poter scalare le risorse in base al volume di dati. & Interno  \\ \hline 	 
-	\caption[Requisiti Di Vincolo]{Requisiti di Vincolo}
+	\caption[Requisiti di vincolo]{Requisiti di vincolo}
 	\label{tabella:requisiti}
 \end{longtable}
 \renewcommand{\arraystretch}{1}
@@ -122,6 +121,6 @@ Per assolvere gli obiettivi del progetto e per rispondere in modo concreto ai pr
 Alla fine del periodo di stage, i risultati ottenuti sono stati considerati più che positivi dal tutor aziendale Dott. Michele Giusto, dato che sono stati soddisfatti tutti i requisiti obbligatori e desiderabili. I requisiti facoltativi, non sono stati implementati per lasciare maggiore spazio e importanza ai requisiti obbligatori.
 \\
 Inoltre, il sotto-progetto riguardante la fase di \emph{ingestion} ha avuto ottimi risultati, tale per cui si è dimostrata pronta per essere utilizzata in fasi di "produzione".
-Per quanto riguarda la parte di classificazione, è stata messa a punto per scheletro e funzionalità senza però essere pronta per gestire effettivamente l'aggiornamento real time dei dati, soprattutto perché da parte del clienti vi è stato un rallentamento nel passaggio di dati ed informazioni per la scelta del miglior modello. 
+Per quanto riguarda la parte di classificazione, è stata messa a punto per scheletro e funzionalità senza però essere pronta per gestire effettivamente l'aggiornamento real time dei dati, soprattutto perché da parte del clienti vi è stato un rallentamento nel passaggio di dati ed informazioni per la scelta del modello più adatto. 
 
 

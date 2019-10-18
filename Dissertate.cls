@@ -325,7 +325,7 @@
 	  %\@coadvisorOne \\
 	  %\vspace{10pt}
 	\end{flushleft}
-	  \vspace{170pt}
+	  \vspace{150pt}
     \textbf{Anno Accademico 2018 - 2019}
 	\end{normalsize}
 	
