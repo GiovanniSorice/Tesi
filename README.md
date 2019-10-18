@@ -11,7 +11,7 @@ Il progetto, ha portato allo sviluppo di due prodotti che lavorano in sinergia p
 il massimo valore aggiunto all’azienda cliente. I due prodotti si dividono prevalentemente
 per scopo e processamento dei dati, infatti il primo si occupa di acquisire, conservare
 e trasformare il dato in informazione, mentre il secondo punta a classificare i dati e a cercarne
-eventuali anomalie.## FAQ
+eventuali anomalie.
 
 ## Credits
 Template of thesis from https://github.com/suchow/Dissertate
